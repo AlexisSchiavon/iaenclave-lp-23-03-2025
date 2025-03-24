@@ -75,9 +75,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       >
         <span className="text-lg font-medium">{question}</span>
         <ChevronDown
-          className={`transform transition-transform ${
-            isOpen ? 'rotate-180' : ''
-          }`}
+          className={`transform transition-transform ${isOpen ? 'rotate-180' : ''
+            }`}
         />
       </button>
       {isOpen && (
@@ -151,14 +150,23 @@ function App() {
           <h1 className="text-4xl md:text-6xl font-bold text-center mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
             Potencia tu empresa con soluciones personalizadas de IA
           </h1>
-          
+
           <div className="flex justify-center items-center gap-2 mb-8">
             <PlayCircle className="text-blue-500" />
             <p className="text-gray-300">Ve el video antes de agendar</p>
           </div>
 
-          <div className="bg-[#1e1e1e] rounded-xl p-8 aspect-video mb-12 flex items-center justify-center">
-            <p className="text-xl text-gray-400">Video Explicativo</p>
+          <div className="bg-[#1e1e1e] rounded-xl p-2 mb-12 overflow-hidden">
+            <div className="aspect-video w-full">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/_V_6OPZH4zM"
+                title="Video Explicativo"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen>
+              </iframe>
+            </div>
           </div>
 
           {/* CTA Buttons */}
@@ -306,26 +314,20 @@ response = agent.run(
                   Adaptado a cualquier ambiente empresarial
                 </h3>
               </div>
-              <p className="text-gray-400 mb-12">
-                Nuestra solución se integra perfectamente con cualquier sector empresarial, 
+              <p className="text-gray-400 mb-6">
+                Nuestra solución se integra perfectamente con cualquier sector empresarial,
                 optimizando procesos específicos y adaptándose a tus necesidades únicas.
-                
               </p>
-              <div className="flex justify-center items-center gap-8 flex-wrap">
-                <div className="relative">
-                  <div className="w-20 h-20 bg-[#1e1e1e] rounded-full flex items-center justify-center border-2 border-blue-500">
-                    <BrainCog className="w-14 h-14 text-blue-500" />
-                  </div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="flex gap-16">
-                      <SectorIcon icon={Building2} label="Servicios" />
-                      <SectorIcon icon={Stethoscope} label="Salud" />
-                    </div>
-                    <div className="flex gap-16 mt-16">
-                      <SectorIcon icon={Store} label="Retail" />
-                      <SectorIcon icon={Factory} label="Industria" />
-                    </div>
-                  </div>
+
+              <div className="flex flex-col items-center">
+                <div className="w-20 h-20 bg-[#1e1e1e] rounded-full flex items-center justify-center border-2 border-blue-500 mb-6">
+                  <BrainCog className="w-14 h-14 text-blue-500" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+                  <SectorIcon icon={Building2} label="Servicios" />
+                  <SectorIcon icon={Stethoscope} label="Salud" />
+                  <SectorIcon icon={Store} label="Retail" />
+                  <SectorIcon icon={Factory} label="Industria" />
                 </div>
               </div>
             </div>
@@ -362,7 +364,7 @@ response = agent.run(
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             Preguntas frecuentes
           </h2>
-          
+
           <div className="mb-8">
             <a
               href="https://calendly.com/alexis-schiavon/consultoria-gratuita-con-ia-en-clave"
